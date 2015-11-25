@@ -21,7 +21,7 @@ npm install
 Create a config file in the root directory, and add your api key.
 ```JavaScript
 module.exports = {
-  apiKey: 'b554b57e08b04fa0b6cbfc628377bfdf'
+  apiKey: 'YOUR API KEY'
 };
 ```
 PS, if you're going to push back to Github add the config to your .gitignore file.
