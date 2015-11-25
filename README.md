@@ -7,6 +7,9 @@ Example of a Halo 5 profile page using Node.js and halo-api.
 Make sure you have [Node.js](https://nodejs.org/en/) installed.
 
 Make sure you have [gulp.js](http://gulpjs.com/) installed.
+```
+npm install --global gulp
+```
 
 Fork the repo and clone from Github.
 ```
