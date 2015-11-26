@@ -6,13 +6,12 @@ var character = 'Major Nelson';
 
 
 module.exports = {
-  weapons: function() {
-    h5.metadata.weapons()
-      .then(function(weapons) {
-        return weapons;
-      })
-      .catch(function(error) {
-        console.log(error);
+  matches: h5.stats.playerMatches("Frankie")
+    .then(function(data) {
+      data.Results.forEach(function(match) {
+        console.log(match[1].MatchDuration);
+        return match[1].MatchDuration;
       });
-  }
+    })
+
 };
