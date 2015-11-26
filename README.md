@@ -21,7 +21,7 @@ Install all of the dependencies.
 npm install
 ```
 
-Create a config file in the root directory, and add your api key.
+Create a config file in the root directory, then add your api key. You can get an api key [here](https://developer.haloapi.com/).
 ```JavaScript
 module.exports = {
   apiKey: 'YOUR API KEY'
