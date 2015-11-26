@@ -6,12 +6,10 @@ var character = 'Major Nelson';
 
 
 module.exports = {
-  matches: h5.stats.playerMatches("Frankie")
-    .then(function(data) {
-      data.Results.forEach(function(match) {
-        console.log(match[1].MatchDuration);
-        return match[1].MatchDuration;
-      });
-    })
+  matches: h5.profile.emblemImage("Frankie").then(function(url) {
+    console.log(url);
+    return url;
+  })
+
 
 };
