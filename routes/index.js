@@ -9,9 +9,13 @@ var character = "Frankie";
 /* GET home page. */
 
 router.get('/api/weapons', function(req, res) {
-  h5.metadata.weapons().then(function(weapons) {
-    res.json(weapons);
-  });
+  h5.metadata.weapons()
+    .then(function(weapons) {
+      res.json(weapons);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 });
 
 router.get('/api', function(req, res) {
