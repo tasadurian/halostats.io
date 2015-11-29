@@ -6,22 +6,45 @@ var h5 = new HaloAPI(config.apiKey);
 
 var character = "Frankie";
 
-/* GET home page. */
 
-router.get('/api/weapons', function(req, res) {
-  h5.metadata.weapons()
-    .then(function(weapons) {
-      res.json(weapons);
+
+router.get('/api/stats/player-matches', function(req, res) {
+  h5.stats.playerMatches(character)
+    .then(function(matches) {
+      res.json(matches);
     })
     .catch(function(error) {
       console.log(error);
     });
 });
 
-router.get('/api', function(req, res) {
-  res.json({
-    "api": "api"
-  });
+router.get('/api/stats/arena-matches', function(req, res) {
+  h5.stats.playerMatches({
+      player: character,
+      mode: "arena",
+      start: 0,
+      count: 10
+    }).then(function(matches) {
+      res.json(matches);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 });
+
+router.get('/api/stats/warzone-matches', function(req, res) {
+  h5.stats.playerMatches({
+      player: character,
+      mode: "warzone",
+      start: 0,
+      count: 10
+    }).then(function(matches) {
+      res.json(matches);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
 
 module.exports = router;
