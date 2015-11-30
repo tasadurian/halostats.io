@@ -6,7 +6,9 @@ var h5 = new HaloAPI(config.apiKey);
 
 var character = "Frankie";
 
-
+router.get('/', function(req, res) {
+  res.sendfile('./views/index.html');
+});
 
 router.get('/api/stats/player-matches', function(req, res) {
   h5.stats.playerMatches(character)
