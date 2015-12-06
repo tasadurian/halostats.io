@@ -10,7 +10,7 @@ var CommentBox = React.createClass({
       React.createElement('div', {
           className: "commentBox"
         },
-        "Hello, world! I am a CommentBox."
+        "Hello, world! I am a CommentBox. gbnfgxngfn."
       )
     );
   }
