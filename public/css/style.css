@@ -451,3 +451,12 @@ body {
   height: 60px;
   background-color: #FF9727;
 }
+
+.profilePic {
+  height: 50px;
+  width: 50px;
+  background-color: #27C4FF;
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+}
