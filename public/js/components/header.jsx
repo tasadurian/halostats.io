@@ -7,6 +7,7 @@ var Header = React.createClass({
     return (
       <div className="header">
         <div className="profilePic"></div>
+        <h1 className="headerProfileName">Character Name</h1>
       </div>
     );
   }

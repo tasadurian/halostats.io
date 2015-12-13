@@ -10,6 +10,16 @@ router.get('/', function(req, res) {
   res.sendfile('./views/index.html');
 });
 
+router.get('/api/profile/emblem-image', function(req, res) {
+  h5.profile.emblemImage(character)
+    .then(function(imageUrl) {
+      res.json(imageUrl);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
 router.get('/api/stats/player-matches', function(req, res) {
   h5.stats.playerMatches(character)
     .then(function(matches) {

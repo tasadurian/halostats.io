@@ -460,3 +460,9 @@ body {
   margin-left: 5px;
   margin-top: 5px;
 }
+
+.headerProfileName {
+  color: #0E85B2;
+  float: left;
+  margin: 12px;
+}
