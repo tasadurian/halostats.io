@@ -1,1 +1,1 @@
-var two = require('./components/reactTest.js');
+var header = require('./components/header.jsx');

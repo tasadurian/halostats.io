@@ -447,6 +447,7 @@ body {
   background-color: #0E85B2;
 }
 
-.two {
+.header {
+  height: 60px;
   background-color: #FF9727;
 }
