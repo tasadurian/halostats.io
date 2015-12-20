@@ -13,7 +13,9 @@ router.get('/', function(req, res) {
 router.get('/api/profile/emblem-image', function(req, res) {
   h5.profile.emblemImage(character)
     .then(function(imageUrl) {
-      res.json(imageUrl);
+      res.json({
+        "url": imageUrl
+      });
     })
     .catch(function(error) {
       console.log(error);

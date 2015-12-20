@@ -15,7 +15,9 @@
     "morgan": "^1.6.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "serve-favicon": "^2.3.0"
+    "react-refetch": "^0.6.0",
+    "serve-favicon": "^2.3.0",
+    "whatwg-fetch": "^0.10.1"
   },
   "devDependencies": {
     "babelify": "^7.1.0",

@@ -1,1 +1,3 @@
-var header = require('./components/header.jsx');
+window.onload = function() {
+  var header = require('./components/header.jsx');
+};
