@@ -22,6 +22,18 @@ router.get('/api/profile/emblem-image', function(req, res) {
     });
 });
 
+router.get('/api/profile/spartan-image', function(req, res) {
+  h5.profile.spartanImage(character)
+    .then(function(imageUrl) {
+      res.json({
+        "url": imageUrl
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
 router.get('/api/stats/player-matches', function(req, res) {
   h5.stats.playerMatches(character)
     .then(function(matches) {

@@ -1,19 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Refetch = require('react-refetch');
 var $ = require('jquery');
-
-var emblemUrl = function() {
-  $.ajax({
-    url: '/api/profile/emblem-image',
-    type: "GET",
-    dataType: "json",
-    success: function(data) {
-      console.log(data.url);
-      return data.url;
-    }
-  });
-};
 
 
 var Header = React.createClass({
@@ -21,10 +8,14 @@ var Header = React.createClass({
     return (
       <div className="header">
         <ProfilePic />
+        <SpartanPic />
       </div>
     );
   }
 });
+
+// Class for profile picture-------------------------------------------
+//---------------------------------------------------------------------
 
 var ProfilePic = React.createClass({
   getInitialState: function() {
@@ -46,8 +37,35 @@ var ProfilePic = React.createClass({
 
   render: function() {
     return (
-      // <img className="emblemImg" src={"https://content.halocdn.com/media/Default/games/halo-5-guardians/csr/csr_gold_array03-bcbc2b460a934f10b499ee7f9bec6315.png"} />
       <img className="emblemImg" src={ this.state.profilePicUrl } />
+    );
+  }
+});
+
+// Class for spartan picture-------------------------------------------
+//---------------------------------------------------------------------
+
+var SpartanPic = React.createClass({
+  getInitialState: function() {
+    return {
+      spartanPicUrl: ''
+    };
+  },
+
+  componentDidMount: function() {
+    $.get('/api/profile/spartan-image', function(data) {
+      var lastGist = data.url;
+      if (this.isMounted()) {
+        this.setState({
+          spartanPicUrl: lastGist
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function() {
+    return (
+      <img className="emblemImg" src={ this.state.spartanPicUrl } />
     );
   }
 });
