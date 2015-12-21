@@ -37,7 +37,7 @@ var ProfilePic = React.createClass({
 
   render: function() {
     return (
-      <img className="emblemImg" src={ this.state.profilePicUrl } />
+      <img className="headerImg" src={ this.state.profilePicUrl } />
     );
   }
 });
@@ -65,7 +65,7 @@ var SpartanPic = React.createClass({
 
   render: function() {
     return (
-      <img className="emblemImg" src={ this.state.spartanPicUrl } />
+      <img className="headerImg" src={ this.state.spartanPicUrl } />
     );
   }
 });

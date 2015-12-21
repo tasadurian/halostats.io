@@ -1,16 +1,23 @@
 @import 'foundation';
 @import 'colors';
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background-color: $dark-blue;
 }
 
 .header {
   height: 60px;
+  width: 100%;
   background-color: $light-blue;
+  position: absolute;
 }
 
-.emblemImg {
+.headerImg {
   height: 50px;
   width: 50px;
   float: left;
@@ -22,4 +29,12 @@ body {
   color: $dark-blue;
   float: left;
   margin: 12px;
+}
+
+.content {
+  width: 80%;
+  height: 500px;
+  margin: auto;
+  background-color: $white;
+  clear: left;
 }
