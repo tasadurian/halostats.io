@@ -57,14 +57,8 @@ var Pie = React.createClass({
       if (this.isMounted()) {
         this.setState({
           data: [{
-            values: [
-              totalKills,
-              totalHeadshots
-            ],
-            labels: [
-              'kills',
-              'headshots'
-            ],
+            values: [totalKills, totalHeadshots],
+            labels: ['kills','headshots'],
             type: 'pie'
           }]
         });

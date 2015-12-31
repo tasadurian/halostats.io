@@ -22,7 +22,7 @@ var Plot = React.createClass({
       render: function() {
         return ( < div id = {
             this.props.handle
-          } > test < /div>);
+          } > < /div>);
         }
       });
 

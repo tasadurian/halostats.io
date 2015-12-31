@@ -4,7 +4,7 @@ var HaloAPI = require('haloapi');
 var config = require("../config.js");
 var h5 = new HaloAPI(config.apiKey);
 
-var character = "Chef Eeric";
+var character = "nN3o";
 
 router.get('/', function(req, res) {
   res.sendfile('./views/index.html');
