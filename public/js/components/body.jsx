@@ -8,6 +8,7 @@ var Body = React.createClass({
     return (
       <div className="content">
         <Kills />
+        <Wins />
       </div>
     );
   }
@@ -39,12 +40,48 @@ var Kills = React.createClass({
 
   render: function () {
     var layout = {
-      height: 400,
-      width: 500
+      height: 300,
+      width: 300
     };
     return (
       <div>
-        <Plot handle="pie" data={this.state.data} layout={layout}></Plot>
+        <Plot handle="kills" data={this.state.data} layout={layout}></Plot>
+      </div>
+    );
+  }
+});
+
+var Wins = React.createClass({
+  getInitialState: function() {
+    return {
+      data: []
+    };
+  },
+
+  componentDidMount: function() {
+    $.get('/api/stats/arena', function(data) {
+      var totalWins = data.Result.ArenaStats.TotalGamesWon;
+      var totalLosses = data.Result.ArenaStats.TotalGamesLost;
+      if (this.isMounted()) {
+        this.setState({
+          data: [{
+            values: [totalWins, totalLosses],
+            labels: ['Total Wins','Total Losses'],
+            type: 'pie'
+          }]
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function () {
+    var layout = {
+      height: 300,
+      width: 300
+    };
+    return (
+      <div>
+        <Plot handle="wins" data={this.state.data} layout={layout}></Plot>
       </div>
     );
   }
