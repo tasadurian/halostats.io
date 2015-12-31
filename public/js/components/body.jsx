@@ -8,6 +8,7 @@ var Body = React.createClass({
     return (
       <div className="content">
         <Demo />
+        <Pie />
       </div>
     );
   }
@@ -37,6 +38,26 @@ var Demo = React.createClass({
     return (
       <div>
       	<Plot handle="graph" data={data} layout={layout}></Plot>
+      </div>
+    );
+  }
+});
+
+var Pie = React.createClass({
+  render: function () {
+    var data = [{
+      values: [19, 26, 55],
+      labels: ['Residential', 'Non-Residential', 'Utility'],
+      type: 'pie'
+    }];
+
+    var layout = {
+      height: 400,
+      width: 500
+    };
+    return (
+      <div>
+        <Plot handle="pie" data={data} layout={layout}></Plot>
       </div>
     );
   }

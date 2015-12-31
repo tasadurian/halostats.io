@@ -4,7 +4,7 @@ var HaloAPI = require('haloapi');
 var config = require("../config.js");
 var h5 = new HaloAPI(config.apiKey);
 
-var character = "Frankie";
+var character = "Chef Eeric";
 
 router.get('/', function(req, res) {
   res.sendfile('./views/index.html');
@@ -38,6 +38,16 @@ router.get('/api/stats/player-matches', function(req, res) {
   h5.stats.playerMatches(character)
     .then(function(matches) {
       res.json(matches);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
+router.get('/api/stats/arena', function(req, res) {
+  h5.stats.serviceRecordArena(character)
+    .then(function(character) {
+      res.json(character);
     })
     .catch(function(error) {
       console.log(error);
