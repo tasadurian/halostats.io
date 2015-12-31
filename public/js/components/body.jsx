@@ -44,20 +44,42 @@ var Demo = React.createClass({
 });
 
 var Pie = React.createClass({
-  render: function () {
-    var data = [{
-      values: [19, 26, 55],
-      labels: ['Residential', 'Non-Residential', 'Utility'],
-      type: 'pie'
-    }];
+  getInitialState: function() {
+    return {
+      data: []
+    };
+  },
 
+  componentDidMount: function() {
+    $.get('/api/stats/arena', function(data) {
+      var totalKills = data.Result.ArenaStats.TotalKills;
+      var totalHeadshots = data.Result.ArenaStats.TotalHeadshots;
+      if (this.isMounted()) {
+        this.setState({
+          data: [{
+            values: [
+              totalKills,
+              totalHeadshots
+            ],
+            labels: [
+              'kills',
+              'headshots'
+            ],
+            type: 'pie'
+          }]
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function () {
     var layout = {
       height: 400,
       width: 500
     };
     return (
       <div>
-        <Plot handle="pie" data={data} layout={layout}></Plot>
+        <Plot handle="pie" data={this.state.data} layout={layout}></Plot>
       </div>
     );
   }
