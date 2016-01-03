@@ -32,20 +32,20 @@ var Kills = React.createClass({
             values: [totalKills, totalHeadshots],
             labels: ['kills','headshots'],
             type: 'pie'
-          }]
+          }],
+          layout: {
+            height: 300,
+            width: 300
+          }
         });
       }
     }.bind(this));
   },
 
   render: function () {
-    var layout = {
-      height: 300,
-      width: 300
-    };
     return (
       <div>
-        <Plot handle="kills" data={this.state.data} layout={layout}></Plot>
+        <Plot handle="kills" data={this.state.data} layout={this.state.layout}></Plot>
       </div>
     );
   }
@@ -68,20 +68,20 @@ var Wins = React.createClass({
             values: [totalWins, totalLosses],
             labels: ['Total Wins','Total Losses'],
             type: 'pie'
-          }]
+          }],
+          layout: {
+            height: 300,
+            width: 300
+          }
         });
       }
     }.bind(this));
   },
 
   render: function () {
-    var layout = {
-      height: 300,
-      width: 300
-    };
     return (
       <div>
-        <Plot handle="wins" data={this.state.data} layout={layout}></Plot>
+        <Plot handle="wins" data={this.state.data} layout={this.state.layout}></Plot>
       </div>
     );
   }
