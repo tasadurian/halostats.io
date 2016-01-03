@@ -3,21 +3,7 @@ var ReactDOM = require('react-dom');
 var Plot = require('./plot.js');
 var $ = require('jquery');
 
-var KillsDeaths = require('./kills-deaths.jsx');
-
-var Body = React.createClass({
-  render: function() {
-    return (
-      <div className="content">
-        <KillsDeaths />
-        <Wins />
-      </div>
-    );
-  }
-});
-
-
-var Wins = React.createClass({
+var KillsDeaths = React.createClass({
   getInitialState: function() {
     return {
       data: []
@@ -26,13 +12,13 @@ var Wins = React.createClass({
 
   componentDidMount: function() {
     $.get('/api/stats/arena', function(data) {
-      var totalWins = data.Result.ArenaStats.TotalGamesWon;
-      var totalLosses = data.Result.ArenaStats.TotalGamesLost;
+      var totalKills = data.Result.ArenaStats.TotalKills;
+      var totalHeadshots = data.Result.ArenaStats.TotalHeadshots;
       if (this.isMounted()) {
         this.setState({
           data: [{
-            values: [totalWins, totalLosses],
-            labels: ['Total Wins','Total Losses'],
+            values: [totalKills, totalHeadshots],
+            labels: ['kills','headshots'],
             type: 'pie'
           }],
           layout: {
@@ -47,7 +33,7 @@ var Wins = React.createClass({
   render: function () {
     return (
       <div>
-        <Plot handle="wins"
+        <Plot handle="kills"
               data={this.state.data}
               layout={this.state.layout}>
         </Plot>
@@ -56,4 +42,4 @@ var Wins = React.createClass({
   }
 });
 
-module.exports = Body;
+module.exports = KillsDeaths;
