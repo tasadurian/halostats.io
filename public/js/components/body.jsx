@@ -4,53 +4,14 @@ var Plot = require('./plot.js');
 var $ = require('jquery');
 
 var KillsDeaths = require('./kills-deaths.jsx');
+var WinsLoss = require('./wins-loss.jsx');
 
 var Body = React.createClass({
   render: function() {
     return (
       <div className="content">
         <KillsDeaths />
-        <Wins />
-      </div>
-    );
-  }
-});
-
-
-var Wins = React.createClass({
-  getInitialState: function() {
-    return {
-      data: []
-    };
-  },
-
-  componentDidMount: function() {
-    $.get('/api/stats/arena', function(data) {
-      var totalWins = data.Result.ArenaStats.TotalGamesWon;
-      var totalLosses = data.Result.ArenaStats.TotalGamesLost;
-      if (this.isMounted()) {
-        this.setState({
-          data: [{
-            values: [totalWins, totalLosses],
-            labels: ['Total Wins','Total Losses'],
-            type: 'pie'
-          }],
-          layout: {
-            height: 300,
-            width: 300
-          }
-        });
-      }
-    }.bind(this));
-  },
-
-  render: function () {
-    return (
-      <div>
-        <Plot handle="wins"
-              data={this.state.data}
-              layout={this.state.layout}>
-        </Plot>
+        <WinsLoss />
       </div>
     );
   }
