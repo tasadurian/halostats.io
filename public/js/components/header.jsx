@@ -71,9 +71,4 @@ var SpartanPic = React.createClass({
 });
 
 
-ReactDOM.render(
-  <Header />,
-  document.getElementById('header')
-);
-
 module.exports = Header;

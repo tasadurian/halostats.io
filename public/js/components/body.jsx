@@ -45,7 +45,10 @@ var Kills = React.createClass({
   render: function () {
     return (
       <div>
-        <Plot handle="kills" data={this.state.data} layout={this.state.layout}></Plot>
+        <Plot handle="kills"
+              data={this.state.data}
+              layout={this.state.layout}>
+        </Plot>
       </div>
     );
   }
@@ -81,16 +84,13 @@ var Wins = React.createClass({
   render: function () {
     return (
       <div>
-        <Plot handle="wins" data={this.state.data} layout={this.state.layout}></Plot>
+        <Plot handle="wins"
+              data={this.state.data}
+              layout={this.state.layout}>
+        </Plot>
       </div>
     );
   }
 });
-
-
-ReactDOM.render(
-  <Body />,
-  document.getElementById('content')
-);
 
 module.exports = Body;

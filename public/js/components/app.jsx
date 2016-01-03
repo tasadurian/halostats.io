@@ -3,8 +3,8 @@ var ReactDOM = require('react-dom');
 var Plot = require('./plot.js');
 var $ = require('jquery');
 
-var header = require('./header.jsx');
-var body = require('./body.jsx');
+var Header = require('./header.jsx');
+var Body = require('./body.jsx');
 
 var App = React.createClass({
   render: function() {
@@ -16,3 +16,10 @@ var App = React.createClass({
     );
   }
 });
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('content')
+);
+
+module.eports = App;
