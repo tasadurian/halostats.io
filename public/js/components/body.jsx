@@ -4,14 +4,17 @@ var Plot = require('./plot.js');
 var $ = require('jquery');
 
 var KillsDeaths = require('./kills-deaths.jsx');
-var WinsLoss = require('./wins-loss.jsx');
+//var WinsLoss = require('./wins-loss.jsx');
 
 var Body = React.createClass({
   render: function() {
     return (
       <div className="content">
-        <KillsDeaths />
-        <WinsLoss />
+        <div className=""></div>
+        <div className="">
+          <KillsDeaths />
+        </div>
+        <div className=""></div>
       </div>
     );
   }

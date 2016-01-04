@@ -22,8 +22,8 @@ var KillsDeaths = React.createClass({
             type: 'pie'
           }],
           layout: {
-            height: 300,
-            width: 300
+            height: 450,
+            width: 800
           }
         });
       }
