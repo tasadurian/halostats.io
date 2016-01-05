@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Plot = require('./plot.js');
+var Plot = require('./plot.jsx');
 var $ = require('jquery');
 
 var Header = require('./header.jsx');
