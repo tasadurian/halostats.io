@@ -11,7 +11,9 @@ var App = React.createClass({
     return (
       <div>
         <Header />
-        <Body />
+        <div className="divOne"><Body /></div>
+        <div className="divTwo"></div>
+        <div className="divThree"></div>
       </div>
     );
   }

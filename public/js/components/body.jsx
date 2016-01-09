@@ -10,11 +10,9 @@ var Body = React.createClass({
   render: function() {
     return (
       <div className="content">
-        <div className=""></div>
         <div className="">
           <KillsDeaths />
         </div>
-        <div className=""></div>
       </div>
     );
   }
