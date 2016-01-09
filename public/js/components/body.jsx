@@ -9,11 +9,9 @@ var KillsDeaths = require('./kills-deaths.jsx');
 var Body = React.createClass({
   render: function() {
     return (
-      <div className="content">
-        <div className="">
+        <div className="plot">
           <KillsDeaths />
         </div>
-      </div>
     );
   }
 });

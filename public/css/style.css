@@ -474,16 +474,29 @@ body {
   width: 100%;
   height: 800px;
   background-color: #0E85B2;
+  text-align: center;
 }
 
 .divTwo {
   width: 100%;
   height: 800px;
   background-color: #FF9727;
+  text-align: center;
 }
 
 .divThree {
   width: 100%;
   height: 800px;
   background-color: #40CBFF;
+  text-align: center;
+}
+
+.plot {
+  margin: 0 auto;
+  width: 900px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
