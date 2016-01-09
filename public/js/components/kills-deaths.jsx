@@ -22,8 +22,9 @@ var KillsDeaths = React.createClass({
             type: 'pie'
           }],
           layout: {
-            height: 450,
-            width: 800
+            height: 650,
+            width: 1000,
+            paper_bgcolor: 'rgb(14, 133, 178)'
           }
         });
       }
