@@ -5,6 +5,7 @@ var $ = require('jquery');
 
 var Header = require('./header.jsx');
 var Body = require('./body.jsx');
+var Controller = require('./controller.jsx');
 
 var App = React.createClass({
   render: function() {
@@ -12,7 +13,7 @@ var App = React.createClass({
       <div>
         <Header />
         <div className="divOne"><Body /></div>
-        <div className="divTwo"></div>
+        <div className="divTwo"><Controller /></div>
         <div className="divThree"></div>
       </div>
     );

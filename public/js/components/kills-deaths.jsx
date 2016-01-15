@@ -31,7 +31,7 @@ var KillsDeaths = React.createClass({
     }.bind(this));
   },
 
-  render: function () {
+  render: function() {
     return (
       <div>
         <Plot handle="kills"
