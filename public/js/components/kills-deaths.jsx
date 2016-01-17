@@ -3,6 +3,8 @@ var ReactDOM = require('react-dom');
 var Plot = require('./plot.jsx');
 var $ = require('jquery');
 
+var Header = require('./header.jsx');
+
 var KillsDeaths = React.createClass({
   getInitialState: function() {
     return {
@@ -34,11 +36,16 @@ var KillsDeaths = React.createClass({
   render: function() {
     return (
       <div>
-        <Plot handle="kills"
-              data={this.state.data}
-              layout={this.state.layout}>
-        </Plot>
-      </div>
+        <Header />
+        <button className="leftButton">Left</button>
+        <div className="plot">
+          <Plot handle="kills"
+                data={this.state.data}
+                layout={this.state.layout}>
+          </Plot>
+        </div>
+        <button className="rightButton">Right</button>
+    </div>
     );
   }
 });
