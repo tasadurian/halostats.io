@@ -8,12 +8,19 @@ var Header = require('./header.jsx');
 var KillsDeaths = React.createClass({
   getInitialState: function() {
     return {
-      data: []
+      data: [],
+      layout: {
+        height: 650,
+        width: 1000,
+        paper_bgcolor: 'rgb(14, 133, 178)'
+      },
+      plotHandle: 'kills'
     };
   },
 
   componentDidMount: function() {
     $.get('/api/stats/arena', function(data) {
+      var haloData = this.haloData = data;
       var totalKills = data.Result.ArenaStats.TotalKills;
       var totalHeadshots = data.Result.ArenaStats.TotalHeadshots;
       if (this.isMounted()) {
@@ -23,23 +30,32 @@ var KillsDeaths = React.createClass({
             labels: ['kills','headshots'],
             type: 'pie'
           }],
-          layout: {
-            height: 650,
-            width: 1000,
-            paper_bgcolor: 'rgb(14, 133, 178)'
-          }
+          plotHandle: 'kills'
         });
       }
     }.bind(this));
+  },
+
+  nextPlot: function() {
+    var totalWins = this.haloData.Result.ArenaStats.TotalGamesWon;
+    var totalLosses = this.haloData.Result.ArenaStats.TotalGamesLost;
+    this.setState({
+      data: [{
+        values: [totalWins, totalLosses],
+        labels: ['Wins','Losses'],
+        type: 'pie'
+      }],
+      plotHandle: 'wins'
+    });
   },
 
   render: function() {
     return (
       <div>
         <Header />
-        <button className="leftButton">Left</button>
+        <button className="leftButton" onClick={this.nextPlot}>Left</button>
         <div className="plot">
-          <Plot handle="kills"
+          <Plot handle={this.state.plotHandle}
                 data={this.state.data}
                 layout={this.state.layout}>
           </Plot>
