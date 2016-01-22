@@ -14,7 +14,8 @@ var KillsDeaths = React.createClass({
         width: 1000,
         paper_bgcolor: 'rgb(14, 133, 178)'
       },
-      plotHandle: 'kills'
+      plotHandle: 'kills',
+      charName: ''
     };
   },
 
@@ -30,7 +31,8 @@ var KillsDeaths = React.createClass({
             labels: ['kills','headshots'],
             type: 'pie'
           }],
-          plotHandle: 'kills'
+          plotHandle: 'kills',
+          charName: this.haloData.Id
         });
       }
     }.bind(this));
@@ -52,7 +54,7 @@ var KillsDeaths = React.createClass({
   render: function() {
     return (
       <div>
-        <Header />
+        <Header characterName={this.state.charName}/>
         <button className="leftButton" onClick={this.nextPlot}>Left</button>
         <div className="plot">
           <Plot handle={this.state.plotHandle}

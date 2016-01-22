@@ -9,6 +9,7 @@ var Header = React.createClass({
       <div className="header">
         <ProfilePic />
         <SpartanPic />
+        <h1>{this.props.characterName}</h1>
       </div>
     );
   }
