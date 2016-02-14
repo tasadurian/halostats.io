@@ -9,9 +9,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <div className="divOne"><Body /></div>
-        <div className="divTwo"></div>
-        <div className="divThree"></div>
+        <Body />
       </div>
     );
   }
