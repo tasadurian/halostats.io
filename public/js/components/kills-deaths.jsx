@@ -10,8 +10,8 @@ var KillsDeaths = React.createClass({
     return {
       data: [],
       layout: {
-        height: 650,
-        width: 1000,
+        height: 400,
+        width: 550,
         paper_bgcolor: 'rgb(14, 133, 178)'
       },
       plotHandle: 'kills',
@@ -38,31 +38,16 @@ var KillsDeaths = React.createClass({
     }.bind(this));
   },
 
-  nextPlot: function() {
-    var totalWins = this.haloData.Result.ArenaStats.TotalGamesWon;
-    var totalLosses = this.haloData.Result.ArenaStats.TotalGamesLost;
-    this.setState({
-      data: [{
-        values: [totalWins, totalLosses],
-        labels: ['Wins','Losses'],
-        type: 'pie'
-      }],
-      plotHandle: 'wins'
-    });
-  },
 
   render: function() {
     return (
       <div>
-        <Header characterName={this.state.charName}/>
-        <button className="leftButton" onClick={this.nextPlot}>Left</button>
-        <div className="plot">
+        <div>
           <Plot handle={this.state.plotHandle}
                 data={this.state.data}
                 layout={this.state.layout}>
           </Plot>
         </div>
-        <button className="rightButton">Right</button>
     </div>
     );
   }

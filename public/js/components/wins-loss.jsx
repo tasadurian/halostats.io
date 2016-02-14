@@ -22,8 +22,9 @@ var WinsLoss = React.createClass({
             type: 'pie'
           }],
           layout: {
-            height: 300,
-            width: 300
+            height: 400,
+            width: 550,
+            paper_bgcolor: 'rgb(14, 133, 178)'
           }
         });
       }

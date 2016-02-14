@@ -6,10 +6,26 @@ var $ = require('jquery');
 var Header = React.createClass({
   render: function() {
     return (
-      <div className="header">
-        <ProfilePic />
-        <SpartanPic />
-        <h1>{this.props.characterName}</h1>
+      <div>
+        <header className="mdl-layout__header">
+          <div className="mdl-layout__header-row">
+            <ProfilePic />
+            <SpartanPic />
+            <CharName />
+            <div className="mdl-layout-spacer"></div>
+            <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                        mdl-textfield--floating-label mdl-textfield--align-right">
+              <label className="mdl-button mdl-js-button mdl-button--icon"
+                     htmlFor="fixed-header-drawer-exp">
+                <i className="material-icons">search</i>
+              </label>
+              <div className="mdl-textfield__expandable-holder">
+                <input className="mdl-textfield__input" type="text" name="sample"
+                       id="fixed-header-drawer-exp"></input>
+              </div>
+            </div>
+          </div>
+        </header>
       </div>
     );
   }
@@ -67,6 +83,31 @@ var SpartanPic = React.createClass({
   render: function() {
     return (
       <img className="headerImg" src={ this.state.spartanPicUrl } />
+    );
+  }
+});
+
+var CharName = React.createClass({
+  getInitialState: function() {
+    return {
+      character: ''
+    };
+  },
+
+  componentDidMount: function() {
+    $.get('/api/stats/arena', function(data) {
+      var lastGist = data.Id;
+      if (this.isMounted()) {
+        this.setState({
+          character: lastGist
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function() {
+    return (
+      <h1 className="headerProfileName">{this.state.character}</h1>
     );
   }
 });
