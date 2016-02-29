@@ -1,5 +1,5 @@
-# Halo-Profile-Page
-Example of a Halo 5 profile page using Node.js and halo-api.
+# halostats.io
+Want a better way to track your stats in Halo? This is a project built for the community with feedback from the community. Have an idea? Feel free to open an issue. We want to make the best halo stats website, and we need the community to tell us what they want!
 
 
 ## To run the application:
