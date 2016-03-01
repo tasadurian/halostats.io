@@ -5,7 +5,7 @@ var $ = require('jquery');
 
 var Header = require('./header.jsx');
 
-var Profile = React.createClass({
+var ArenaProfile = React.createClass({
   getInitialState: function() {
     return {
       totalKills: '',
@@ -43,15 +43,16 @@ var Profile = React.createClass({
   render: function() {
     return (
       <div>
-        <p>{this.state.totalKills}</p>
-        <p>{this.state.totalDeaths}</p>
-        <p>{this.state.totalAssists}</p>
-        <p>{this.state.totalHeadshots}</p>
-        <p>{this.state.totalGamesWon}</p>
-        <p>{this.state.totalLosses}</p>
+        <p>Arena Stats</p>
+        <p>Total Arena Kills: {this.state.totalKills}</p>
+        <p>Total Arena Deaths: {this.state.totalDeaths}</p>
+        <p>Total Arena Assists: {this.state.totalAssists}</p>
+        <p>Total Arena Headshots: {this.state.totalHeadshots}</p>
+        <p>Total Arena Wins: {this.state.totalWins}</p>
+        <p>Total Arena Losses: {this.state.totalLosses}</p>
       </div>
     );
   }
 });
 
-module.exports = Profile;
+module.exports = ArenaProfile;
