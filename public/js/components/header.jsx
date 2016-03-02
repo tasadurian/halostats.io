@@ -97,11 +97,9 @@ var CharName = React.createClass({
   componentDidMount: function() {
     $.get('/api/stats/arena', function(data) {
       var name = data.Id;
-      var xp = data.Result.Xp;
       if (this.isMounted()) {
         this.setState({
-          character: name,
-          xp: xp
+          character: name
         });
       }
     }.bind(this));
@@ -111,11 +109,9 @@ var CharName = React.createClass({
     return (
       <div>
         <h1 className="headerProfileName">{this.state.character}</h1>
-        <h1 className="headerProfileName"> XP: {this.state.xp}</h1>
       </div>
     );
   }
 });
-
 
 module.exports = Header;
