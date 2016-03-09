@@ -10,6 +10,7 @@ var ArenaProfile = React.createClass({
     return {
       totalXp: '',
       totalKills: '',
+      kdRatio: '',
       totalDeaths: '',
       totalMeleeKills: '',
       totalAssists: '',
@@ -25,6 +26,7 @@ var ArenaProfile = React.createClass({
       var totalXp = data.Result.Xp;
       var totalKills = data.Result.ArenaStats.TotalKills;
       var totalDeaths = data.Result.ArenaStats.TotalDeaths;
+      var kdRatio = (Number(totalKills/totalDeaths).toFixed(2));
       var totalMeleeKills = data.Result.ArenaStats.TotalMeleeKills;
       var totalAssists = data.Result.ArenaStats.TotalAssists;
       var totalHeadshots = data.Result.ArenaStats.TotalHeadshots;
@@ -35,6 +37,7 @@ var ArenaProfile = React.createClass({
           totalXp: totalXp,
           totalKills: totalKills,
           totalDeaths: totalDeaths,
+          kdRatio: kdRatio,
           totalMeleeKills: totalMeleeKills,
           totalAssists: totalAssists,
           totalHeadshots: totalHeadshots,
@@ -56,6 +59,7 @@ var ArenaProfile = React.createClass({
           <p>Total Arena XP: {this.state.totalXp}</p>
           <p>Total Arena Kills: {this.state.totalKills}</p>
           <p>Total Arena Deaths: {this.state.totalDeaths}</p>
+          <p>K/D Ratio: {this.state.kdRatio}</p>
           <p>Total Arena Melee Kills: {this.state.totalMeleeKills}</p>
           <p>Total Arena Assists: {this.state.totalAssists}</p>
           <p>Total Arena Headshots: {this.state.totalHeadshots}</p>
