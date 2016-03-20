@@ -9,8 +9,8 @@ var Header = React.createClass({
       <div>
         <header className="mdl-layout__header">
           <div className="mdl-layout__header-row">
-            <ProfilePic />
-            <SpartanPic />
+            <ProfilePic emblemUrl={ this.props.emblemUrl }/>
+            <SpartanPic spartanUrl={ this.props.spartanUrl }/>
             <CharName />
             <div className="mdl-layout-spacer"></div>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable
@@ -35,26 +35,9 @@ var Header = React.createClass({
 //---------------------------------------------------------------------
 
 var ProfilePic = React.createClass({
-  getInitialState: function() {
-    return {
-      profilePicUrl: ''
-    };
-  },
-
-  componentDidMount: function() {
-    $.get('/api/profile/emblem-image', function(data) {
-      var lastGist = data.url;
-      if (this.isMounted()) {
-        this.setState({
-          profilePicUrl: lastGist
-        });
-      }
-    }.bind(this));
-  },
-
   render: function() {
     return (
-      <img className="headerImg" src={ this.state.profilePicUrl } />
+      <img className="headerImg" src={ this.props.emblemUrl } />
     );
   }
 });
@@ -63,26 +46,9 @@ var ProfilePic = React.createClass({
 //---------------------------------------------------------------------
 
 var SpartanPic = React.createClass({
-  getInitialState: function() {
-    return {
-      spartanPicUrl: ''
-    };
-  },
-
-  componentDidMount: function() {
-    $.get('/api/profile/spartan-image', function(data) {
-      var lastGist = data.url;
-      if (this.isMounted()) {
-        this.setState({
-          spartanPicUrl: lastGist
-        });
-      }
-    }.bind(this));
-  },
-
   render: function() {
     return (
-      <img className="headerImg" src={ this.state.spartanPicUrl } />
+      <img className="headerImg" src={ this.props.spartanUrl } />
     );
   }
 });
